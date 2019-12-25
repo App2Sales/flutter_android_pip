@@ -28,7 +28,6 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler {
   public void enterPIP(){
     if (Build.VERSION.SDK_INT > 24 && _pipEnabled)
     _registrar.activity().enterPictureInPictureMode();
-    result.success("Android " + android.os.Build.VERSION.RELEASE);
   }
 
   @Override
