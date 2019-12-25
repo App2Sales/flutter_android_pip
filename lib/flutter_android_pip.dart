@@ -6,7 +6,7 @@ class FlutterAndroidPip {
   static const MethodChannel _channel =
       const MethodChannel('flutter_android_pip');
 
-  static Future<String> get enterPictureInPictureMode {
+  static void enterPictureInPictureMode() {
     _channel.invokeMethod('enterPictureInPictureMode');
   }
 }
