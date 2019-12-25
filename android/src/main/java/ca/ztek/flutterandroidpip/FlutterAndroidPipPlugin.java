@@ -14,12 +14,20 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler {
   /** Plugin registration. */
   static Registrar _registrar;
   private Boolean _pipEnabled = false;
+  FlutterAndroidPipPlugin _instance;
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_android_pip");
-    channel.setMethodCallHandler(new FlutterAndroidPipPlugin());
+    channel.setMethodCallHandler(FlutterAndroidPipPlugin.getInstance());
     _registrar = registrar;
   }
 
+  public static FlutterAndroidPipPlugin getInstance() 
+  { 
+      if (_instance == null) 
+        _instance = new FlutterAndroidPipPlugin(); 
+
+      return _instance; 
+  } 
 
   public void setPIP(boolean canEnterPip){
     _pipEnabled = canEnterPip;
