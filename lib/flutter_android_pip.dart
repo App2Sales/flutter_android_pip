@@ -13,6 +13,6 @@ class FlutterAndroidPip {
   }
 
   static void disablePIP(){
-     _channel.invokeMethod('allowPIP');
+     _channel.invokeMethod('disablePIP');
   }
 }

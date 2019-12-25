@@ -10,7 +10,7 @@ import io.flutter.plugin.common.MethodChannel.Result;
 import io.flutter.plugin.common.PluginRegistry.Registrar;
 
 /** FlutterAndroidPipPlugin */
-public class FlutterAndroidPipPlugin implements MethodCallHandler {
+public class FlutterAndroidPipPlugin implements MethodCallHandler, UserLeaveHintListener {
   /** Plugin registration. */
   static Registrar _registrar;
   private Boolean _pipEnabled = false;
@@ -32,6 +32,12 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler {
   public void setPIP(boolean canEnterPip){
     _pipEnabled = canEnterPip;
   }
+
+  @Override
+  public void onUserLeaveHint() {
+    System.out.println("User left!");
+    enterPIP();
+   }
 
   public void enterPIP(){
     if (Build.VERSION.SDK_INT > 24 && _pipEnabled)
