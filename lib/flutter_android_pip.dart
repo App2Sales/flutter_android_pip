@@ -8,8 +8,8 @@ class FlutterAndroidPip {
     _channel.invokeMethod('enterPictureInPictureMode');
   }
 
-  static void allowPIP(){
-     _channel.invokeMethod('allowPIP');
+  static void enablePIP(){
+     _channel.invokeMethod('enablePIP');
   }
 
   static void disablePIP(){
