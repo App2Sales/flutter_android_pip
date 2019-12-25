@@ -11,7 +11,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 import io.flutter.plugin.common.PluginRegistry.UserLeaveHintListener;
 
 /** FlutterAndroidPipPlugin */
-public class FlutterAndroidPipPlugin implements MethodCallHandler, PluginRegistry.UserLeaveHintListener {
+public class FlutterAndroidPipPlugin implements MethodCallHandler, UserLeaveHintListener {
   /** Plugin registration. */
   static Registrar _registrar;
   private Boolean _pipEnabled = false;
