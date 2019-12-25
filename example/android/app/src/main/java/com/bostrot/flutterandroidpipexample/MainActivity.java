@@ -1,4 +1,4 @@
-package com.bostrot.flutterandroidpipexample;
+package ca.ztek.flutterandroidpipexample;
 
 import android.os.Bundle;
 import io.flutter.app.FlutterActivity;

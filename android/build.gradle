@@ -1,4 +1,4 @@
-group 'com.bostrot.flutterandroidpip'
+group 'ca.ztek.flutterandroidpip'
 version '1.0-SNAPSHOT'
 
 buildscript {

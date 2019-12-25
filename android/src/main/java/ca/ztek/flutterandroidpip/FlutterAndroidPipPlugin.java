@@ -1,4 +1,4 @@
-package com.bostrot.flutterandroidpip;
+package ca.ztek.flutterandroidpip;
 
 import android.annotation.TargetApi;
 import android.os.Build;
