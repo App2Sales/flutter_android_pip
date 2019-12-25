@@ -20,19 +20,28 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler {
     _registrar = registrar;
   }
 
+
+  public void setPIP(boolean canEnterPip){
+    _pipEnabled = canEnterPip;
+  }
+
+  public void enterPIP(){
+    if (Build.VERSION.SDK_INT > 24 && _pipEnabled)
+    _registrar.activity().enterPictureInPictureMode();
+    result.success("Android " + android.os.Build.VERSION.RELEASE);
+  }
+
   @Override
   public void onMethodCall(MethodCall call, Result result) {
     switch (call.method) {
       case "enterPictureInPictureMode":
-      if (Build.VERSION.SDK_INT > 24 && _pipEnabled)
-        _registrar.activity().enterPictureInPictureMode();
-        result.success("Android " + android.os.Build.VERSION.RELEASE);
+        enterPIP();
         break;
       case "enablePIP":
-       _pipEnabled = true;
+      setPIP(true);
       break;
       case "disablePIP":
-      _pipEnabled = false;
+      setPIP(false);
       break;
       default:
         result.notImplemented();
