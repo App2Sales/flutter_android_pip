@@ -19,6 +19,7 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler, UserLeaveHint
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_android_pip");
     channel.setMethodCallHandler(FlutterAndroidPipPlugin.getInstance());
     _registrar = registrar;
+    _registrar.addUserLeaveHintListener(FlutterAndroidPipPlugin.getInstance());
   }
 
   public static FlutterAndroidPipPlugin getInstance() 
