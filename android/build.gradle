@@ -1,5 +1,4 @@
 group 'ca.ztek.flutterandroidpip'
-version '1.0-SNAPSHOT'
 
 buildscript {
     repositories {
@@ -8,7 +7,7 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.android.tools.build:gradle:3.5.0'
     }
 }
 
