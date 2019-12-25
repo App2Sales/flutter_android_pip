@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/services.dart';
 
 class FlutterAndroidPip {
@@ -8,5 +6,13 @@ class FlutterAndroidPip {
 
   static void enterPictureInPictureMode() {
     _channel.invokeMethod('enterPictureInPictureMode');
+  }
+
+  static void allowPIP(){
+     _channel.invokeMethod('allowPIP');
+  }
+
+  static void disablePIP(){
+     _channel.invokeMethod('allowPIP');
   }
 }

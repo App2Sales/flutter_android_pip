@@ -13,6 +13,7 @@ import io.flutter.plugin.common.PluginRegistry.Registrar;
 public class FlutterAndroidPipPlugin implements MethodCallHandler {
   /** Plugin registration. */
   static Registrar _registrar;
+  private Boolean _pipEnabled = false;
   public static void registerWith(Registrar registrar) {
     final MethodChannel channel = new MethodChannel(registrar.messenger(), "flutter_android_pip");
     channel.setMethodCallHandler(new FlutterAndroidPipPlugin());
@@ -21,13 +22,22 @@ public class FlutterAndroidPipPlugin implements MethodCallHandler {
 
   @Override
   public void onMethodCall(MethodCall call, Result result) {
-    if (call.method.equals("enterPictureInPictureMode")) {
-        if (Build.VERSION.SDK_INT > 24)
-          _registrar.activity().enterPictureInPictureMode();
+    switch (call.method) {
+      case "enterPictureInPictureMode":
+      if (Build.VERSION.SDK_INT > 24 && _pipEnabled)
+        _registrar.activity().enterPictureInPictureMode();
         result.success("Android " + android.os.Build.VERSION.RELEASE);
-      } else {
+        break;
+      case "enablePIP":
+       _pipEnabled = true;
+      break;
+      case "disablePIP":
+      _pipEnabled = false;
+      break;
+      default:
         result.notImplemented();
-      }
+        break;
+    }
     }
   }
 
